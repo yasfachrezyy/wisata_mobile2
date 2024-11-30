@@ -1,5 +1,6 @@
 import 'package:aslab_travel/const.dart';
 import 'package:aslab_travel/model/destination_model.dart';
+import 'package:aslab_travel/screens/detail_destination.dart';
 import 'package:aslab_travel/widgets/popular_destination.dart';
 import 'package:aslab_travel/widgets/rekomendasi_destination.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +71,15 @@ class _HomePageState extends State<HomePage> {
                 (index) => Padding(
                   padding: EdgeInsets.only(right: 15),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) =>
+                              DetailDestinasi(destination: popular[index]),
+                        ),
+                      );
+                    },
                     child: PopularDestination(
                       destination: popular[index],
                     ),
@@ -114,7 +123,15 @@ class _HomePageState extends State<HomePage> {
                   (index) => Padding(
                     padding: EdgeInsets.only(bottom: 10),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => DetailDestinasi(
+                                destination: rekomendasi[index]),
+                          ),
+                        );
+                      },
                       child: RekomendasiDestination(
                           destination: rekomendasi[index]),
                     ),
